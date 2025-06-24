@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 from utils import compress_image_svd
 from PIL import Image
 import numpy as np
+from shutil import copyfile
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
@@ -22,6 +23,9 @@ def index():
             filename = secure_filename(image_file.filename)
             path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             image_file.save(path)
+            
+            static_original_path = os.path.join('static', filename)
+            copyfile(path, static_original_path)
 
             start_time = time.time()
             original, compressed = compress_image_svd(path, k)
@@ -35,7 +39,7 @@ def index():
             compression_ratio = 100 * (1 - comp_pixels / orig_pixels)
 
             return render_template('index.html',
-                original_path=path,
+                original_path=static_original_path,
                 output_path=OUTPUT_IMAGE,
                 runtime=round(runtime, 4),
                 compression=round(compression_ratio, 2))
