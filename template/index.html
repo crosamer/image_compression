@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Compression with SVD</title>
+</head>
+<body>
+    <h2>Upload Image and Set Compression Level (k)</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required><br><br>
+        <label for="k">Compression Level (k):</label>
+        <input type="number" name="k" min="1" required><br><br>
+        <input type="submit" value="Compress Image">
+    </form>
+
+    {% if original_path %}
+        <h3>Original Image:</h3>
+        <img src="{{ original_path }}" width="300"><br>
+
+        <h3>Compressed Image:</h3>
+        <img src="{{ output_path }}" width="300"><br>
+
+        <p>Runtime: {{ runtime }} seconds</p>
+        <p>Compression Percentage: {{ compression }}%</p>
+        <a href="/download">Download Compressed Image</a>
+    {% endif %}
+</body>
+</html>
