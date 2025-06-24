@@ -1,10 +1,10 @@
 > **Project Based Learning 2 Image Compression**  
 > Mata Kuliah: Aljabar Linier  
 > Kelas B — Semester Genap 2024  
-> Kelompok 7:
-> Mohammad Adzka Crosamer (L0123083)
-> Muhammad Farhan Khairullah (L0123093)
-> Mutiara Hasanah (L0123102) 
+> Kelompok 7:  
+> Mohammad Adzka Crosamer (L0123083)  
+> Muhammad Farhan Khairullah (L0123093)  
+> Mutiara Hasanah (L0123102)   
 
 ---
 
